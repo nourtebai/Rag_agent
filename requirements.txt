@@ -1,0 +1,16 @@
+mcp
+langchain-mcp-adapters
+python-multipart
+langsmith
+sqlalchemy
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-dotenv
+psycopg[binary]
+langchain
+langchain-core
+langchain-postgres
+langchain-ollama
+docling
+langchain-docling
