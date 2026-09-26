@@ -1,18 +1,8 @@
-from app.retrieval.store import get_vector_store
+from app.retrieval.hybrid import hybrid_search
+from app.retrieval.reranker import rerank
 
 
 def search(query: str, k: int = 4) -> list[dict]:
-    """Return the k most relevant chunks for a query, with scores and sources."""
-    store = get_vector_store()
-    results = store.similarity_search_with_score(query, k=k)
-
-    return [
-        {
-            "content": doc.page_content,
-            "source": doc.metadata.get("source"),
-            "pages": doc.metadata.get("pages"),
-            "headings": doc.metadata.get("headings"),
-            "score": score,
-        }
-        for doc, score in results
-    ]
+    """Pipeline complet : recherche hybride (large) → reranking (précis) → top k."""
+    candidates = hybrid_search(query, k=20)
+    return rerank(query, candidates, top_n=k)

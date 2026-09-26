@@ -24,10 +24,12 @@ Le Supervisor ne décide que si une recherche est nécessaire, jamais où cherch
 - **Extraction** : Docling
 - **Orchestration** : LangChain + LangGraph
 - **LLM & embeddings** : Ollama (qwen3:8b, bge-m3), local
+- **Retrieval** : recherche hybride (vectorielle + plein texte Postgres) fusionnée par Reciprocal Rank Fusion, puis reranking par cross-encoder multilingue
 - **Base de données** : PostgreSQL + pgvector
 - **API** : FastAPI
 - **Outils** : MCP (Model Context Protocol) — `search_knowledge_base` (documents indexés) et `web_search` (recherche web, via ddgs, sans clé API)
 - **Observabilité** : LangSmith
+
 
 ## Prérequis
 
