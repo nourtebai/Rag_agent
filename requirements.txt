@@ -1,3 +1,4 @@
+ddgs
 mcp
 langchain-mcp-adapters
 python-multipart
